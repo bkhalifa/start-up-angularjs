@@ -1,0 +1,13 @@
+
+<div class="container">
+
+ 
+  <h1  ng-click="collapse()">
+    hello my name is {{ctrl.name}}
+  </h1>  
+  <div ng-show="!collapsed" >
+<ul>
+    <li ng-repeat="pr in ctrl.products">{{pr.modelNumber}}</li>
+</ul>
+</div>
+</div>
