@@ -4,30 +4,35 @@ myApp.directive('userInfoCard',   ['$state','productService',
 function($state, productService) {
 
     var directive = {
-        bindToController:true,
+    
         controller:['$scope', controller],
         controllerAs:'ctrl',
+        bindToController:true,
         replace:true,
         scope:{
           products : '=',
-          collapsed : '@',
+           collapsed : '=',//@
           notifyParent:'&method'
         },
         restrict:'E',
-        templateUrl:'../templates/user-card-info.html'
-    
+        templateUrl:'../templates/user-card-info.html',
+        link:function(scope, el, attr){
+          el.on('click',function(){
+              $(this).css('color','red')
+        })
+        }
     };
     
     return directive;
        
        function controller($scope){
-
+          $scope.size = 150;
          vm = this;
-         vm.products = $scope.ctrl.products.data;
+         vm.products = $scope.ctrl.products;
        
-        debugger;
+ 
         console.log($scope)
-         this.name = "bilel";
+         vm.name = "bilel";
     
          $scope.collapse = function(){
           $scope.collapsed = !this.collapsed;

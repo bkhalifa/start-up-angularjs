@@ -1,13 +1,17 @@
 
 <div class="container">
 
+ <div user-click-select="size">
+  hello my name is {{ctrl.name}}
+  <input type="text" ng-model = size>
+ </div>
+  <h1  ng-click="collapse()" >
+  products
+  </h1>
  
-  <h1  ng-click="collapse()">
-    hello my name is {{ctrl.name}}
-  </h1>  
   <div ng-show="!collapsed" >
 <ul>
-    <li ng-repeat="pr in ctrl.products">{{pr.modelNumber}}</li>
+    <li ng-repeat="pr in ctrl.products.data">{{pr.modelNumber}}</li>
 </ul>
 </div>
 </div>
